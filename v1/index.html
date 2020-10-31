@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adekogbe Faith | Profile</title>
+    <link rel="icon" href="assets/img/phainix_thick.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Quicksand:600,300|Sofia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body class="main">
+    <header>
+        <a class="logo" href="javascript:void(0)">
+            <img src="assets/img/phainix_thick.svg" alt="Phainix Logo">
+        </a>
+        <div>
+            <!-- <h1 class="website-name cursive">PHAINIX</h1> -->
+        </div>
+    </header>
+    <div class="menu-container">
+        <nav class="menu">
+            <span class="menu-item active">about</span>
+            <span class="menu-item">skills</span class="menu-item">
+            <span class="menu-item">work</span class="menu-item">
+            <span class="menu-item">more</span class="menu-item">
+            <span class="menu-item">contact</span class="menu-item">
+            <div class="slider"></div>
+        </nav>
+    </div>
+
+    <div class="module-container">
+        <div class="modules">
+            <a href="javascript:void(0)" class="module-item">
+                <img src="assets/img/icons/web.svg" alt="" srcset="">
+                <span class="module desc">Development</span>
+            </a>
+            <a href="javascript:void(0)" class="module-item">
+                <img src="assets/img/icons/technology.svg" alt="" srcset="">
+                <span class="module desc">Music</span>
+            </a>
+            <a href="javascript:void(0)" class="module-item">
+                <img src="assets/img/icons/education.svg" alt="" srcset="">
+                <span class="module desc">Laboratory</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="about">
+            <div>Hello! I'm <b class="name">Faith Adekogbe</b>.</div>
+            <div>a fullstack developer with a passion for building appealing, usable and functional digital products.</div>
+        </div>
+    </div>
+
+    <footer>
+        <span>&copy; 2020 Phainix</span>
+    </footer>
+
+    <script>
+        document.querySelector('nav.menu').addEventListener('mouseover', function (event) {
+            console.log('entered', event.clientX, event.clientY);
+        });
+
+        const menus = document.querySelectorAll('.menu-item');
+        for (let index = 0; index < menus.length; index++) {
+            const element = menus[index];
+            element.addEventListener('mouseover', function (event) {
+                console.log('entered menu item', event.clientX, event.clientY);
+            });
+        }
+    </script>
+</body>
+</html>

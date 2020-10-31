@@ -1,0 +1,15 @@
+{
+  "name": "phainix",
+  "version": "1.0.0",
+  "description": "phainix.co portfolio site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "less": "lessc --lists assets/css/style.less assets/css/style.css"
+  },
+  "keywords": [
+    "phainix"
+  ],
+  "author": "Faith Adekogbe",
+  "license": "ISC"
+}
