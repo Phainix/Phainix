@@ -24,7 +24,7 @@ html, body {
     // overflow-x: hidden;
     // overflow-y: auto;
     /* color: white; */
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 300;
     position: relative;
     background: @light_blue;
@@ -437,6 +437,11 @@ main#main-container {
     padding-top: @dimen;
 }
 
+.section-title {
+    width: 100%;
+    flex: 0 0 100%;
+}
+
 .about-container {
     height: calc(100vh - @dimen * 2);
 
@@ -484,9 +489,31 @@ main#main-container {
 .about-item {
     flex: 0 0 50%;
     padding: 1rem;
+
+    h4 {
+        margin-bottom: .4rem;
+    }
 }
 
 .divider {
     width: 100%;
     height: @dimen;
+}
+
+.skills-container {
+    justify-content: space-between;
+}
+
+.skills-group {
+    background-color: @primary_color;
+    padding: 2rem;
+    border-radius: .2rem;
+    transition: 4s;
+    transform: translateY(100px);
+}
+
+.skills-group:nth-of-type(2) {
+    background-color: @dark_color;
+    color: @light_blue;
+    transform: translateY(200px);
 }

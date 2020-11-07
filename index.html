@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="loading-container flex">
+    <div class="loading-container flex d-none">
         <h1 class="icon-loader fade-in-letters d-none">FA</h1>
         <div class="full-loader flex container">
             <div class="box">
@@ -31,46 +31,60 @@
     <div class="content-container" id="skrollr-body">
         <a href="/" class="brand"><img src="assets/img/icon.svg" alt="" srcset="" class="brand-img"></a>
         <main id="main-container">
-            <div class="section about-container">
+            <div class="section about-container" id="about-container">
                 <div class="about-content">
                     <div class="about-slider"></div>
                     <div class="about-list flex">
-                        <div class="about-item">
-                            <h5>Lorem Ipsum Dolor Sit</h5>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta recusandae sunt ipsa architecto neque nostrum placeat suscipit aperiam deserunt eligendi rerum perspiciatis nam excepturi voluptate, obcaecati eaque deleniti dolorem necessitatibus?</p>
+                        <div class="about-item about-scale">
+                            <h4>Software Development</h4>
+                            <p>I work with web and mobile technologoes to build appealing, usable and functional digital products for everyday use.</p>
                         </div>
-                        <div class="about-item">
-                            <h5>Lorem Ipsum Dolor Sit</h5>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta recusandae sunt ipsa architecto neque nostrum placeat suscipit aperiam deserunt eligendi rerum perspiciatis nam excepturi voluptate, obcaecati eaque deleniti dolorem necessitatibus?</p>
+                        <div class="about-item about-scale">
+                            <h4>Startup Consulting</h4>
+                            <p>I offer business and technical advisory to startups with the goal of growing impactful and profitable businesses.</p>
                         </div>
-                        <div class="about-item">
-                            <h5>Lorem Ipsum Dolor Sit</h5>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta recusandae sunt ipsa architecto neque nostrum placeat suscipit aperiam deserunt eligendi rerum perspiciatis nam excepturi voluptate, obcaecati eaque deleniti dolorem necessitatibus?</p>
+                        <div class="about-item about-scale">
+                            <h4>Software Architecture</h4>
+                            <p>I create software blueprints that manage complexity using design principles and patterns for accessibility and performance. </p>
                         </div>
-                        <div class="about-item">
-                            <h5>Lorem Ipsum Dolor Sit</h5>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta recusandae sunt ipsa architecto neque nostrum placeat suscipit aperiam deserunt eligendi rerum perspiciatis nam excepturi voluptate, obcaecati eaque deleniti dolorem necessitatibus?</p>
+                        <div class="about-item about-scale">
+                            <h4>Mentorship</h4>
+                            <p>I guide and train people by providing professional and personal support with the aim of advancing their careers.</p>
                         </div>
                     </div>
                     <div class="about-desc">
-                        <div>Hello! I'm <b class="name">Faith Adekogbe</b>.</div>
-                        <div>a fullstack developer with a passion for building appealing, usable and functional digital products.</div>
+                        <div><b class="name">Hello! I'm Faith Adekogbe.</b></div>
+                        <div>i'm passionionate about people, products and crafting user-focused experiences with technology.</div>
                     </div>
                 </div>
             </div>
 
             <div class="divider"></div>
 
-            <div class="test red" id="test1">
-                <div class="content">
-                    <h1>1</h1>
-                    <div class="paperfly" style="transition: all 1s; background-color: brown;">Paper</div>
-                    <span class="line line-1"></span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique explicabo molestias nihil
-                    asperiores accusantium illum at assumenda, ipsam eum provident facilis quaerat repellendus soluta
-                    numquam rerum molestiae cumque, minima harum? Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Excepturi praesentium maiores, facilis quos dolor ab. Eaque nulla perspiciatis odit modi sunt!
-                    Illo omnis temporibus quidem aut tempore maiores repellendus culpa?
+            <div class="section skills-container flex" id="skills-container">
+                <div class="skills-group">
+                    Lorem ipsum dolor sit <br/>
+                    amet consectetur adipisicing elit. <br/>
+                    Similique explicabo molestias nihil <br/>
+                    asperiores accusantium illum at <br/>
+                    assumenda, ipsam eum provident <br/>
+                    facilis quaerat repellendus soluta
+                </div>
+                <div class="skills-group">
+                    Lorem ipsum dolor sit <br/>
+                    amet consectetur adipisicing elit. <br/>
+                    Similique explicabo molestias nihil <br/>
+                    asperiores accusantium illum at <br/>
+                    assumenda, ipsam eum provident <br/>
+                    facilis quaerat repellendus soluta
+                </div>
+                <div class="skills-group">
+                    Lorem ipsum dolor sit <br/>
+                    amet consectetur adipisicing elit. <br/>
+                    Similique explicabo molestias nihil <br/>
+                    asperiores accusantium illum at <br/>
+                    assumenda, ipsam eum provident <br/>
+                    facilis quaerat repellendus soluta
                 </div>
             </div>
 
@@ -146,8 +160,8 @@
         </footer>
         <div class="menu-container">
             <nav class="menu">
-                <a class="menu-item active" href="#test1" data-nav="test1">about</a>
-                <a class="menu-item" href="#test2" data-nav="test2">skills</a>
+                <a class="menu-item active" href="#about-container" data-nav="about-container">about</a>
+                <a class="menu-item" href="#skills-container" data-nav="skills-container">skills</a>
                 <a class="menu-item" href="#test3" data-nav="test3">work</a>
                 <a class="menu-item" href="#test4" data-nav="test4">playground</a>
                 <div class="slider"></div>
