@@ -1,5 +1,7 @@
 window.addEventListener('load', function () {
 
+    document.scrollingElement.scrollTo(0, 0);
+
     setTimeout(function () {
         document.querySelector(".full-loader").classList.add("show");
         setTimeout(function () {
@@ -48,15 +50,57 @@ window.addEventListener('load', function () {
         .from(".about-scale", { scale: 0.45, ease: "power2", y: 100, opacity: 0 }, 0.1);
 
     // --- SKILLS SECTION ---
-    gsap.utils.toArray(".skills-container .skills-group").forEach(function (elem) {
-        // hide(elem); // assure that the element is hidden when scrolled into view
+    gsap.utils.toArray(".skills-container").forEach(function (section) {
+        section.querySelectorAll('.skills-text').forEach(function(skillstext, index) {
+            const [x, xEnd] = (index % 2) ? [0, skillstext.scrollWidth * -1] : [0, skillstext.scrollWidth * 1];
 
-        ScrollTrigger.create({
-            trigger: ".skills-container",
-            onEnter: function () { animateFrom(elem) },
-            onEnterBack: function () { animateFrom(elem, -1) },
-            // onLeave: function () { hide(elem) } // assure that the element is hidden when scrolled into view
+            console.log(index, x, xEnd);
+
+            gsap.fromTo(skillstext, {  x  }, {
+                x: xEnd,
+                scrollTrigger: { 
+                    trigger: '.skills-text-right', 
+                    scrub: 0.5 
+                }
+            }, 1.5);
         });
+
+        // ScrollTrigger.create({
+        //     trigger: elem,
+        //     onEnter: function () { gsap.fromTo(elem, { y: 500, autoAlpha: 1}, { y: 0, autoAlpha: 1, duration: 2, ease: "power3" }); },
+        //     // onEnterBack: function () { gsap.fromTo(elem, { y: -100, autoAlpha: 1}, { y: 0, autoAlpha: 1, duration: 2, ease: "power3" }) },
+        //     // onLeave: function () { /* hide(elem) */ } // assure that the element is hidden when scrolled into views
+        // });
+    });
+
+    // var skills = gsap.timeline({
+    //     scrollTrigger: {
+    //         trigger: ".skills-container",
+    //         scrub: true,
+    //         pin: false,
+    //         start: "top top",
+    //         end: "+=100%"
+    //     }
+    // });
+
+    // skills.to(".skills-text-left", { x: 200, ease: "power3" })
+    //         .to(".skills-text-right", { x: 200, ease: "power3" });
+
+    gsap.to(".works-container", {
+        //console.log(innerWidth);
+        scrollTrigger: {
+            trigger: ".works-container",
+            scrub: true,
+            pin: true,
+            start: "top top",
+            end: "+=100%"
+        },
+        x: -4000,
+        transformOrigin: "left middle",
+        ease: "none",
+        onRepeat: function () {
+            console.log('starting section 4');
+        }
     });
 
     // ScrollTrigger.defaults({
