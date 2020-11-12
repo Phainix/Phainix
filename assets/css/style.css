@@ -1,3 +1,21 @@
+.responsive_padding {
+  padding: 5rem;
+}
+@media (max-width: 1200px) {
+  .responsive_padding {
+    padding: 3rem;
+  }
+}
+@media (max-width: 900px) {
+  .responsive_padding {
+    padding: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .responsive_padding {
+    padding: 1rem;
+  }
+}
 html,
 body {
   padding: 0;
@@ -10,6 +28,12 @@ body {
   position: relative;
   background: #F1FBFF;
   color: #384955;
+}
+@media (max-width: 1400px) {
+  html,
+  body {
+    font-size: 1rem;
+  }
 }
 @media (max-width: 1200px) {
   html,
@@ -434,10 +458,30 @@ main#main-container {
   flex-wrap: wrap;
   padding: 5rem;
 }
+@media (max-width: 1200px) {
+  .about-list {
+    padding: 3rem;
+  }
+}
+@media (max-width: 900px) {
+  .about-list {
+    padding: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .about-list {
+    padding: 1rem;
+  }
+}
 .about-item {
   flex: 0 0 50%;
   padding: 1rem;
   text-align: justify;
+}
+@media (max-width: 900px) {
+  .about-item {
+    flex: 0 0 100%;
+  }
 }
 .about-item h4 {
   margin-bottom: 0.4rem;
@@ -509,6 +553,29 @@ span.skills-text.skills-text-left {
   padding: 1rem;
   flex-direction: row;
   margin-bottom: 4rem;
+}
+.work-item.endsars .work-desc {
+  background: #fd645b;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  color: #F1FBFF;
+}
+.work-item.purplechip .work-desc {
+  background: #efebf4;
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+.work-item.whitepineapple .work-desc {
+  background: #142646;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  color: #F1FBFF;
+}
+.work-item.ekogrid .work-desc {
+  background: #141738;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  color: #F1FBFF;
 }
 .work-item:nth-of-type(odd) {
   flex-direction: row-reverse;

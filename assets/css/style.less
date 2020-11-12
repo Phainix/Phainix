@@ -1,6 +1,8 @@
 @sidemenu: 3;
 @skillsgroup: 3;
 @dimen: 5rem;
+@dimen_md: 3rem;
+@dimen_sm: 2rem;
 @dimen_xs: 1rem;
 
 @primary_color: #b6d5ed;
@@ -10,10 +12,27 @@
 @light_blue: #F1FBFF;
 
 
+@screen_nm: 1400px;
 @screen_md: 1200px;
 @screen_sm: 900px;
 @screen_xs: 600px;
 @screen_xxs: 400px;
+
+.responsive_padding {
+    padding: @dimen;
+
+    @media (max-width: @screen_md) {
+        padding: @dimen_md;
+    }
+
+    @media (max-width: @screen_sm) {
+        padding: @dimen_sm;
+    }
+
+    @media (max-width: @screen_xs) {
+        padding: @dimen_xs;
+    }
+}
 
 
 html, body {
@@ -32,6 +51,10 @@ html, body {
     color: @dark_color;
     // scroll-snap-type: y mandatory;
 
+    @media (max-width: @screen_nm) {
+        font-size: 1rem;
+    }
+    
     @media (max-width: @screen_md) {
         font-size: .9rem;
     }
@@ -480,13 +503,17 @@ main#main-container {
     background-color: transparent;
     z-index: 1;
     flex-wrap: wrap;
-    padding: @dimen;
+    .responsive_padding();
 }
 
 .about-item {
     flex: 0 0 50%;
     padding: 1rem;
     text-align: justify;
+
+    @media (max-width: @screen_sm) {
+        flex: 0 0 100%;
+    }
 
     h4 {
         margin-bottom: .4rem;
@@ -573,17 +600,50 @@ span.skills-text.skills-text-left {
         // background: #fd645b;
         // color: @light_blue;
         // background-color: @dark_color;
+
+        .work-desc {
+            background: #fd645b;
+            padding-top: 1rem;
+            padding-right: 2rem;
+            color: @light_blue;
+        }
     }
 
     &.purplechip {
         // background: #efebf4;
         // background-color: @primary_color;
+
+        .work-desc {
+            background: #efebf4;
+            padding-top: 1rem;
+            padding-left: 2rem;
+        }
     }
 
     &.whitepineapple {
         // background: #142646;
         // color: @light_blue;
         // background-color: @dark_color;
+
+        .work-desc {
+            background: #142646;
+            padding-top: 1rem;
+            padding-right: 2rem;
+            color: @light_blue;
+        }
+    }
+
+    &.ekogrid {
+        // background: #142646;
+        // color: @light_blue;
+        // background-color: @dark_color;
+
+        .work-desc {
+            background: #141738;
+            padding-top: 1rem;
+            padding-right: 2rem;
+            color: @light_blue;
+        }
     }
 
     &:nth-of-type(odd) {

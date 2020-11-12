@@ -249,7 +249,7 @@ window.addEventListener('load', function () {
     navLinks.forEach(function (a, i) {
         start[i] = getPosition(document.querySelector(a.getAttribute("href")));
         end[i] = start[i] + document.querySelector(a.getAttribute("href")).offsetHeight;
-        pos[i] = end[i] - 300;
+        pos[i] = end[i] - (300 * i);
         a.addEventListener("click", function (e) {
             e.preventDefault();
             gsap.to(window, { duration: 1, scrollTo: e.target.getAttribute("href") });
