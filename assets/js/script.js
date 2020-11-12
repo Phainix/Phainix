@@ -54,8 +54,6 @@ window.addEventListener('load', function () {
         section.querySelectorAll('.skills-text').forEach(function(skillstext, index) {
             const [x, xEnd] = (index % 2) ? [0, skillstext.scrollWidth * -1] : [0, skillstext.scrollWidth * 1];
 
-            console.log(index, x, xEnd);
-
             gsap.fromTo(skillstext, {  x  }, {
                 x: xEnd,
                 scrollTrigger: { 
@@ -86,23 +84,19 @@ window.addEventListener('load', function () {
     // skills.to(".skills-text-left", { x: 200, ease: "power3" })
     //         .to(".skills-text-right", { x: 200, ease: "power3" });
 
-    gsap.to(".works-container", {
-        //console.log(innerWidth);
-        scrollTrigger: {
-            trigger: ".works-container",
-            scrub: true,
-            pin: true,
-            start: "top top",
-            end: "+=100%"
-        },
-        x: -4000,
-        transformOrigin: "left middle",
-        ease: "none",
-        onRepeat: function () {
-            console.log('starting section 4');
-        }
+    gsap.utils.toArray(".work-item").forEach(function (item) {
+        gsap.to(item.querySelector(".work-img"), {
+            scrollTrigger: {
+                trigger: item,
+                scrub: true,
+                pin: false,
+                start: "top center",
+                end: "+=100%"
+            },
+            y: -200,
+            ease: "none"
+        });
     });
-
     // ScrollTrigger.defaults({
     //     toggleActions: "restart pause resume pause"
     // });
@@ -261,6 +255,8 @@ window.addEventListener('load', function () {
             gsap.to(window, { duration: 1, scrollTo: e.target.getAttribute("href") });
         });
     });
+
+    console.log(pos);
 
     // animate side menu based on section
     gsap.utils.toArray(".section").forEach(function (elem, i) {

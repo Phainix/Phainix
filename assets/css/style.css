@@ -498,6 +498,7 @@ span.skills-text.skills-text-left {
 .works-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .work-item {
   flex: 0 0 100%;
@@ -506,32 +507,38 @@ span.skills-text.skills-text-left {
   margin-right: 5%;
   border-radius: 0.2rem;
   padding: 1rem;
+  flex-direction: row;
+  margin-bottom: 4rem;
 }
-.work-item.endsars {
-  background: #fd645b;
-  color: #F1FBFF;
+.work-item:nth-of-type(odd) {
+  flex-direction: row-reverse;
+  padding-left: 10rem;
 }
-.work-item.purplechip {
-  background: #efebf4;
+.work-item:nth-of-type(odd) .work-desc {
+  padding-left: 2rem;
 }
-.work-item.whitepineapple {
-  background: #142646;
-  color: #F1FBFF;
+.work-item:nth-of-type(even) {
+  padding-right: 10rem;
 }
-.work-title {
+.work-item:nth-of-type(even) .work-desc {
+  padding-right: 2rem;
+}
+.work-item .work-title {
+  flex: 1 1 100%;
   margin-bottom: 2rem;
 }
-.work-desc {
+.work-item .work-desc {
   flex: 0 0 50%;
-  padding-right: 2rem;
   text-align: justify;
 }
-.work-display {
+.work-item .work-display {
   flex: 0 0 50%;
-  width: 50%;
+  width: 100%;
   height: 25vw;
   overflow-y: hidden;
+  border-radius: 0.2rem;
 }
-.work-display img {
+.work-item .work-display img {
   width: 100%;
+  transition: all 0.4s;
 }
