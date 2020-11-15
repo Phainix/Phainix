@@ -593,8 +593,10 @@ span.skills-text.skills-text-left {
     margin-right: 5%;
     border-radius: .2rem;
     padding: 1rem;
+    padding-bottom: 4rem;
     flex-direction: row;
     margin-bottom: 4rem;
+    background-color: @primary_color;
 
     &.endsars {
         // background: #fd645b;
@@ -602,10 +604,10 @@ span.skills-text.skills-text-left {
         // background-color: @dark_color;
 
         .work-desc {
-            background: #fd645b;
-            padding-top: 1rem;
-            padding-right: 2rem;
-            color: @light_blue;
+            // background: #fd645b;
+            // padding-top: 1rem;
+            // padding-right: 2rem;
+            // color: @light_blue;
         }
     }
 
@@ -614,9 +616,9 @@ span.skills-text.skills-text-left {
         // background-color: @primary_color;
 
         .work-desc {
-            background: #efebf4;
-            padding-top: 1rem;
-            padding-left: 2rem;
+            // background: #efebf4;
+            // padding-top: 1rem;
+            // padding-left: 2rem;
         }
     }
 
@@ -626,10 +628,10 @@ span.skills-text.skills-text-left {
         // background-color: @dark_color;
 
         .work-desc {
-            background: #142646;
-            padding-top: 1rem;
-            padding-right: 2rem;
-            color: @light_blue;
+            // background: #142646;
+            // padding-top: 1rem;
+            // padding-right: 2rem;
+            // color: @light_blue;
         }
     }
 
@@ -639,16 +641,16 @@ span.skills-text.skills-text-left {
         // background-color: @dark_color;
 
         .work-desc {
-            background: #141738;
-            padding-top: 1rem;
-            padding-right: 2rem;
-            color: @light_blue;
+            // background: #141738;
+            // padding-top: 1rem;
+            // padding-right: 2rem;
+            // color: @light_blue;
         }
     }
 
     &:nth-of-type(odd) {
         flex-direction: row-reverse;
-        padding-left: @dimen * 2;
+        // padding-left: @dimen * 2;
 
         .work-desc {
             padding-left: 2rem;
@@ -656,7 +658,7 @@ span.skills-text.skills-text-left {
     }
 
     &:nth-of-type(even) {
-        padding-right: @dimen * 2;
+        // padding-right: @dimen * 2;
 
         .work-desc {
             padding-right: 2rem;
@@ -689,4 +691,25 @@ span.skills-text.skills-text-left {
 
 div#works-container {
     // overflow: hidden;
+}
+
+.work-sub-title {
+    margin-bottom: 1rem;
+}
+
+.work-item-technologies {
+    padding-top: 1rem;
+
+    .work-item-technology-list {
+        display: flex;
+
+        .work-item-technology {
+            padding: .4rem 1rem;
+            background-color: @dark_color;
+            color: @light_blue;
+            border-radius: .2rem;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+    }
 }

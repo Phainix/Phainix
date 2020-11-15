@@ -551,41 +551,16 @@ span.skills-text.skills-text-left {
   margin-right: 5%;
   border-radius: 0.2rem;
   padding: 1rem;
+  padding-bottom: 4rem;
   flex-direction: row;
   margin-bottom: 4rem;
-}
-.work-item.endsars .work-desc {
-  background: #fd645b;
-  padding-top: 1rem;
-  padding-right: 2rem;
-  color: #F1FBFF;
-}
-.work-item.purplechip .work-desc {
-  background: #efebf4;
-  padding-top: 1rem;
-  padding-left: 2rem;
-}
-.work-item.whitepineapple .work-desc {
-  background: #142646;
-  padding-top: 1rem;
-  padding-right: 2rem;
-  color: #F1FBFF;
-}
-.work-item.ekogrid .work-desc {
-  background: #141738;
-  padding-top: 1rem;
-  padding-right: 2rem;
-  color: #F1FBFF;
+  background-color: #b6d5ed;
 }
 .work-item:nth-of-type(odd) {
   flex-direction: row-reverse;
-  padding-left: 10rem;
 }
 .work-item:nth-of-type(odd) .work-desc {
   padding-left: 2rem;
-}
-.work-item:nth-of-type(even) {
-  padding-right: 10rem;
 }
 .work-item:nth-of-type(even) .work-desc {
   padding-right: 2rem;
@@ -608,4 +583,21 @@ span.skills-text.skills-text-left {
 .work-item .work-display img {
   width: 100%;
   transition: all 0.4s;
+}
+.work-sub-title {
+  margin-bottom: 1rem;
+}
+.work-item-technologies {
+  padding-top: 1rem;
+}
+.work-item-technologies .work-item-technology-list {
+  display: flex;
+}
+.work-item-technologies .work-item-technology-list .work-item-technology {
+  padding: 0.4rem 1rem;
+  background-color: #384955;
+  color: #F1FBFF;
+  border-radius: 0.2rem;
+  margin-right: 1rem;
+  cursor: pointer;
 }
