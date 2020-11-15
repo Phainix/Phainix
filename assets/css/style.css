@@ -327,24 +327,21 @@ nav.menu > .menu-item.active:nth-of-type(3) ~ .slider {
   width: 2.2em;
   height: 2.2rem;
   background-size: contain;
-  background: #b6d5ed;
   border-radius: 0.2rem;
   padding: 0.2rem;
-  box-shadow: 0 0 1px 0px #b6d5ed;
 }
 footer {
   flex: 0 0 100%;
   width: 100%;
   padding: 0rem 5rem;
-  height: 5rem;
   bottom: 0;
-  background-color: #F1FBFF;
+  background-color: #384955;
+  color: #F1FBFF;
 }
 footer .footer-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
 }
 footer .footer-item {
   cursor: pointer;
@@ -551,10 +548,19 @@ span.skills-text.skills-text-left {
   margin-right: 5%;
   border-radius: 0.2rem;
   padding: 1rem;
-  padding-bottom: 4rem;
   flex-direction: row;
   margin-bottom: 4rem;
   background-color: #b6d5ed;
+  position: relative;
+}
+.work-item .work-item-view {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem 2rem;
+  background-color: #384955;
+  color: #F1FBFF;
+  border-radius: 0.2rem;
+  z-index: 1;
 }
 .work-item:nth-of-type(odd) {
   flex-direction: row-reverse;
@@ -562,8 +568,14 @@ span.skills-text.skills-text-left {
 .work-item:nth-of-type(odd) .work-desc {
   padding-left: 2rem;
 }
+.work-item:nth-of-type(odd) .work-item-view {
+  left: 0;
+}
 .work-item:nth-of-type(even) .work-desc {
   padding-right: 2rem;
+}
+.work-item:nth-of-type(even) .work-item-view {
+  right: 0;
 }
 .work-item .work-title {
   flex: 1 1 100%;
