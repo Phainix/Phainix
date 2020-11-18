@@ -1,4 +1,5 @@
 @sidemenu: 3;
+@sidemenuwidth: 6rem;
 @skillsgroup: 3;
 @dimen: 5rem;
 @dimen_md: 3rem;
@@ -91,6 +92,14 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flex-100 {
+    flex: 0 0 100%;
+}
+
+.wrap {
+    flex-wrap: wrap;
 }
 
 .d-none {
@@ -289,7 +298,7 @@ nav.menu {
     transform-origin: left bottom;
     display: flex;
     flex-direction: row-reverse;
-    bottom: @dimen;
+    bottom: calc((100vh - (@sidemenu * @sidemenuwidth)) / 2);
     left: calc(1.8rem + @dimen / 3);
     .fixed();
 
@@ -318,7 +327,7 @@ nav.menu {
         .for(@x, @n: @sidemenu) {
             &:nth-of-type(@{x}):hover ~ .slider,
             &.active:nth-of-type(@{x}) ~ .slider {
-                left: (@sidemenu - @x) * 6rem;
+                left: (@sidemenu - @x) * @sidemenuwidth;
             }
         }
 
@@ -332,7 +341,6 @@ nav.menu {
 }
 
 .social-container {
-    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -343,10 +351,10 @@ nav.menu {
         cursor: pointer;
 
         &:last-child {
-            padding-bottom: 0rem;
+            // padding-bottom: 0rem;
 
             @media screen and (max-width: @screen_xs) { 
-                padding-bottom: 1rem;
+                // padding-bottom: 1rem;
             }
         }
     }
@@ -373,14 +381,28 @@ nav.menu {
 footer {
     flex: 0 0 100%;
     width: 100%;
-    padding: 0rem @dimen;
+    padding: 2rem @dimen;
     // height: @dimen;
     bottom: 0;
     background-color: @dark_color;
     color: @light_blue;
+    position: relative;
     // .fixed();
 
-    .footer-container {
+    &::before {
+        width: 110%;
+        height: 100%;
+        position: absolute;
+        content: " ";
+        left: 0;
+        background-color: #384955;
+        top: 0;
+        transform: rotate(-3deg);
+        transform-origin: left top;
+        z-index: -1;
+    }
+
+    &.footer-container, .footer-container{
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -389,6 +411,12 @@ footer {
 
     .footer-item {
         cursor: pointer;
+        margin-left: 2rem;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 1rem;
     }
 
     @media screen and (max-width: @screen_xs) { 

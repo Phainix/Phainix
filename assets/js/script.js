@@ -85,15 +85,18 @@ window.addEventListener('load', function () {
     //         .to(".skills-text-right", { x: 200, ease: "power3" });
 
     gsap.utils.toArray(".work-item").forEach(function (item) {
+        var work_display = parseInt(item.querySelector(".work-display").offsetHeight),
+            work_img = parseInt(item.querySelector(".work-img").offsetHeight)
+            ;
         gsap.to(item.querySelector(".work-img"), {
             scrollTrigger: {
                 trigger: item,
                 scrub: true,
                 pin: false,
-                start: "top center",
+                start: "top bottom",
                 end: "+=100%"
             },
-            y: -200,
+            y: work_display - work_img,
             ease: "none"
         });
     });
