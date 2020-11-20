@@ -30,208 +30,79 @@ window.addEventListener('load', function () {
         gsap.to(elem, { y: 0, opacity: 1 });
     }
 
-    // --- ABOUT SECTION ---
-    var about = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".about-container",
-            scrub: true,
-            pin: true,
-            start: "top top",
-            end: "+=100%"
+    function installMediaQueryWatcher(mediaQuery, layoutChangedCallback) {
+        var mql = window.matchMedia(mediaQuery);
+        mql.addListener(function (e) { return layoutChangedCallback(e.matches); });
+        layoutChangedCallback(mql.matches);
+    }
+
+    installMediaQueryWatcher("(min-width: 800px)", function(matches) {
+  
+        if (matches) {
+            about();
+            skills();
+            works();
         }
     });
 
-    about.to(".about-slider", {
-        x: function (index, target, targets) { //function-based value
-            return target.offsetWidth;
-        }, ease: "power2",
-    })
-        .to(".about-desc", { scale: 0.45, transformOrigin: "right center", ease: "power2" }, 0)
-        .from(".about-scale", { scale: 0.45, ease: "power2", y: 100, opacity: 0 }, 0.1);
-
-    // --- SKILLS SECTION ---
-    gsap.utils.toArray(".skills-container").forEach(function (section) {
-        section.querySelectorAll('.skills-text').forEach(function(skillstext, index) {
-            const [x, xEnd] = (index % 2) ? [0, skillstext.scrollWidth * -1] : [0, skillstext.scrollWidth * 1];
-
-            gsap.fromTo(skillstext, {  x  }, {
-                x: xEnd,
-                scrollTrigger: { 
-                    trigger: '.skills-text-right', 
-                    scrub: 0.5 
-                }
-            }, 1.5);
-        });
-
-        // ScrollTrigger.create({
-        //     trigger: elem,
-        //     onEnter: function () { gsap.fromTo(elem, { y: 500, autoAlpha: 1}, { y: 0, autoAlpha: 1, duration: 2, ease: "power3" }); },
-        //     // onEnterBack: function () { gsap.fromTo(elem, { y: -100, autoAlpha: 1}, { y: 0, autoAlpha: 1, duration: 2, ease: "power3" }) },
-        //     // onLeave: function () { /* hide(elem) */ } // assure that the element is hidden when scrolled into views
-        // });
-    });
-
-    // var skills = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: ".skills-container",
-    //         scrub: true,
-    //         pin: false,
-    //         start: "top top",
-    //         end: "+=100%"
-    //     }
-    // });
-
-    // skills.to(".skills-text-left", { x: 200, ease: "power3" })
-    //         .to(".skills-text-right", { x: 200, ease: "power3" });
-
-    gsap.utils.toArray(".work-item").forEach(function (item) {
-        var work_display = parseInt(item.querySelector(".work-display").offsetHeight),
-            work_img = parseInt(item.querySelector(".work-img").offsetHeight)
-            ;
-        gsap.to(item.querySelector(".work-img"), {
+    var about = function() {
+        // --- ABOUT SECTION ---
+        var about = gsap.timeline({
             scrollTrigger: {
-                trigger: item,
+                trigger: ".about-container",
                 scrub: true,
-                pin: false,
-                start: "top bottom",
+                pin: true,
+                start: "top top",
                 end: "+=100%"
-            },
-            y: work_display - work_img,
-            ease: "none"
+            }
         });
-    });
-    // ScrollTrigger.defaults({
-    //     toggleActions: "restart pause resume pause"
-    // });
-
-    // gsap.to("#test2 .paperfly", {
-    //     scrollTrigger: "#test2",
-    //     duration: 2,
-    //     rotation: 360
-    // });
-
-    // gsap.to("#test3 .content", {
-    //     scrollTrigger: {
-    //         trigger: "#test3",
-    //         toggleActions: "restart pause reverse pause"
-    //     },
-    //     duration: 1,
-    //     backgroundColor: "#FFA500",
-    //     ease: "none"
-    // });
-
-    // gsap.to("#test4 p", {
-    //     scrollTrigger: "#test4",
-    //     scale: 2,
-    //     repeat: -1,
-    //     yoyo: true,
-    //     ease: "power2"
-    // });
-
-    // gsap.to(".test", {
-    //     scrollTrigger: {
-    //         trigger: "#test3",
-    //         scrub: 1.6,
-    //         end: "+=".concat(2 * window.innerHeight),
-    //         toggleActions: "restart none nonee"
-    //     },
-    //     scale: 2,
-    //     repeat: -1,
-    //     yoyo: true,
-    //     ease: "power2"
-    // });
-
-    // gsap.from("#test1 .paperfly", {
-    //     scrollTrigger: {
-    //       trigger: "#test1",
-    //       scrub: true,
-    //       start: "top bottom",
-    //       end: "top top",
-    //       pin: true,
-    //     },
-    //     scaleX: 0,
-    //     transformOrigin: "left center", 
-    //     ease: "none"
-    // });
-
-    // gsap.from("#test2 .paperfly", {
-    //     scrollTrigger: {
-    //       trigger: "#test2",
-    //       scrub: true,
-    //       pin: true,
-    //       start: "top top",
-    //       end: "+=100%"
-    //     },
-    //     scaleX: 0, 
-    //     transformOrigin: "left center", 
-    //     ease: "none"
-    //   });
-
-    // --- RED PANEL ---
-    // gsap.from(".line-1", {
-    //     scrollTrigger: {
-    //         trigger: ".red",
-    //         scrub: true,
-    //         pin: true,
-    //         start: "top top",
-    //         end: "+=100%"
-    //     },
-    //     scaleX: 0,
-    //     transformOrigin: "left center",
-    //     ease: "none",
-    //     onRepeat: function () {
-    //         console.log('starting section 1');
-    //     }
-    // });
-
-    // gsap.from(".line-2", {
-    //     scrollTrigger: {
-    //         trigger: ".orange",
-    //         scrub: true,
-    //         pin: true,
-    //         start: "top top",
-    //         end: "+=100%"
-    //     },
-    //     scaleX: 0,
-    //     transformOrigin: "left center",
-    //     ease: "none"
-    // }).eventCallback("onRepeat", function () {
-    //     console.log('starting section 2');
-    // });
 
 
-    // --- PURPLE/GREEN PANEL ---
-    // var tl = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: ".purple",
-    //         scrub: true,
-    //         pin: true,
-    //         start: "top top",
-    //         end: "+=100%"
-    //     }
-    // }).eventCallback("onStart", function () {
-    //     console.log('starting section 3');
-    // });
+        about.to(".about-slider", {
+            x: function (index, target, targets) { //function-based value
+                return target.offsetWidth;
+            }, ease: "power2",
+        })
+            .to(".about-desc", { scale: 0.45, transformOrigin: "right center", ease: "power2" }, 0)
+            .from(".about-scale", { scale: 0.45, ease: "power2", y: 100, opacity: 0 }, 0.1);
+    };
 
-    // tl.from(".purple p", { scale: 0.3, rotation: 45, autoAlpha: 0, ease: "power2" })
-    //     .from(".line-3", { scaleX: 0, transformOrigin: "left center", ease: "none" }, 0)
-    //     .to(".purple", { backgroundColor: "black" }, 0);
+    var skills = function() {
+        // --- SKILLS SECTION ---
+        gsap.utils.toArray(".skills-container").forEach(function (section) {
+            section.querySelectorAll('.skills-text').forEach(function(skillstext, index) {
+                const [x, xEnd] = (index % 2) ? [0, skillstext.scrollWidth * -1] : [0, skillstext.scrollWidth * 1];
 
-    // gsap.from(".line-4", {
-    //     scrollTrigger: {
-    //         trigger: ".grey",
-    //         scrub: true,
-    //         pin: true,
-    //         start: "top top",
-    //         end: "+=100%"
-    //     },
-    //     scaleX: 0,
-    //     transformOrigin: "left center",
-    //     ease: "none",
-    //     onRepeat: function () {
-    //         console.log('starting section 4');
-    //     }
-    // });
+                gsap.fromTo(skillstext, {  x  }, {
+                    x: xEnd,
+                    scrollTrigger: { 
+                        trigger: '.skills-text-right', 
+                        scrub: 0.5 
+                    }
+                }, 1.5);
+            });
+        });
+    };
+
+    var works = function() {
+        gsap.utils.toArray(".work-item").forEach(function (item) {
+            var work_display = parseInt(item.querySelector(".work-display").offsetHeight),
+                work_img = parseInt(item.querySelector(".work-img").offsetHeight)
+                ;
+            gsap.to(item.querySelector(".work-img"), {
+                scrollTrigger: {
+                    trigger: item,
+                    scrub: true,
+                    pin: false,
+                    start: "top bottom",
+                    end: "+=100%"
+                },
+                y: work_display - work_img,
+                ease: "none"
+            });
+        });
+    };
+
 
     var navLinks = gsap.utils.toArray("nav.menu a");
     var start = [], end = [], pos = [];

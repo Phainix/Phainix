@@ -42,7 +42,7 @@ html, body {
     font-family: "Quicksand", sans-serif;
     width: 100vw;
     // height: 100vh;
-    // overflow-x: hidden;
+    overflow-x: hidden;
     // overflow-y: auto;
     /* color: white; */
     font-size: 1.1rem;
@@ -270,7 +270,7 @@ a {
 
 .content-container {
     width: 100vw;
-    height: 100vh;
+    // height: 100vh;
     // background: @light_blue;
     display: flex;
     flex-wrap: wrap;
@@ -288,7 +288,10 @@ a {
 .menu-container {
     position: relative;
 
-    @media screen and (max-width: @screen_xs) {
+    @media screen and (max-width: @screen_sm) {
+        transform: none;
+        flex-direction: row;
+        margin-left: calc((100vw - (@sidemenu * @sidemenuwidth)) / 2);
         order: 2;
         margin-bottom: 1rem;
     }
@@ -333,7 +336,7 @@ nav.menu {
 
     }
 
-    @media screen and (max-width: @screen_xs) {
+    @media screen and (max-width: @screen_sm) {
         transform: none;
         flex-direction: row;
     }
@@ -344,6 +347,7 @@ nav.menu {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 1;
     // .fixed();
 
     .social-item {
@@ -399,13 +403,14 @@ footer {
         top: 0;
         transform: rotate(-3deg);
         transform-origin: left top;
-        z-index: -1;
+        z-index: 0;
     }
 
     &.footer-container, .footer-container{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        z-index: 1;
         // height: 100%;
     }
 
@@ -417,6 +422,7 @@ footer {
     .footer-bottom {
         text-align: center;
         margin-top: 1rem;
+        z-index: 1;
     }
 
     @media screen and (max-width: @screen_xs) { 
@@ -494,10 +500,11 @@ main#main-container {
 .about-container {
     min-height: calc(100vh - @dimen * 2);
 
-    @media (max-width: @screen_xs) {
-        padding: @dimen_xs + 1rem;
-        font-size: 340%;
+    @media (max-width: @screen_sm) {
+        padding: 0rem;
+        font-size: 100%;
         height: auto;
+        min-height: 0rem;
     }
 }
 
@@ -510,6 +517,11 @@ main#main-container {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+
+    @media (max-width: @screen_sm) {
+        padding: @dimen_sm;
+        flex-direction: column-reverse;
+    }
 }
 
 .about-slider, .about-list {
@@ -520,12 +532,21 @@ main#main-container {
     left: 0;
     top: 0;
     z-index: 2;
+
+    @media (max-width: @screen_sm) {
+        position: static;
+        width: 100%;
+    }
 }
 
 .about-desc {
     font-size: 400%;
     z-index: 3;
     position: relative;
+
+    @media (max-width: @screen_sm) {
+        font-size: 200%;
+    }
 }
 
 .about-list {
@@ -533,6 +554,10 @@ main#main-container {
     z-index: 1;
     flex-wrap: wrap;
     .responsive_padding();
+
+    @media (max-width: @screen_sm) {
+        padding: 0;
+    }
 }
 
 .about-item {
@@ -542,6 +567,7 @@ main#main-container {
 
     @media (max-width: @screen_sm) {
         flex: 0 0 100%;
+        padding: 0.6rem 0rem;
     }
 
     h4 {
@@ -558,6 +584,10 @@ main#main-container {
     justify-content: space-between;
     align-items: flex-start;
     position: relative;
+
+    @media (max-width: @screen_sm) {
+        flex-direction: column;
+    }
 }
 
 .skills-group {
@@ -570,6 +600,7 @@ main#main-container {
     flex-basis: calc(100% / 3);
     display: flex;
     flex-direction: column;
+    z-index: 1;
 
     .for(@x, @n: @skillsgroup) {
         &:nth-of-type(@{x}) {
@@ -579,6 +610,17 @@ main#main-container {
 
     .skill-item {
         margin-bottom: 1rem;
+
+        @media (max-width: @screen_sm) {
+            margin-bottom: .4rem;
+        }
+    }
+
+    @media (max-width: @screen_sm) {
+        flex-basis: 100%;
+        width: 100%;
+        margin-top: 1rem !important;
+        padding: 1rem;
     }
 }
 
@@ -592,9 +634,13 @@ main#main-container {
     color: @primary_color;
     font-weight: 600;
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     opacity: .35;
     // width: 50%;
+
+    @media (max-width: @screen_sm) {
+        display: none;
+    }
 }
 
 span.skills-text.skills-text-right {
@@ -720,11 +766,13 @@ span.skills-text.skills-text-left {
     
     .work-desc {
         flex: 0 0 50%;
+        width: 50%;
         text-align: justify;
     }
     
     .work-display {
         flex: 0 0 50%;
+        width: 50%;
         width: 100%;
         height: 25vw;
         overflow-y: hidden;    
@@ -733,6 +781,10 @@ span.skills-text.skills-text-left {
         img {
             width: 100%;
             transition: all .4s;
+        }
+
+        @media (max-width: @screen_sm) {
+            height: 30vw;
         }
     }
 
@@ -751,6 +803,7 @@ div#works-container {
 
     .work-item-technology-list {
         display: flex;
+        flex-wrap: wrap;
 
         .work-item-technology {
             padding: .4rem 1rem;
@@ -759,6 +812,7 @@ div#works-container {
             border-radius: .2rem;
             margin-right: 1rem;
             cursor: pointer;
+            margin-top: .4rem;
         }
     }
 }
