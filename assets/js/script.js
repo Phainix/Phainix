@@ -30,21 +30,6 @@ window.addEventListener('load', function () {
         gsap.to(elem, { y: 0, opacity: 1 });
     }
 
-    function installMediaQueryWatcher(mediaQuery, layoutChangedCallback) {
-        var mql = window.matchMedia(mediaQuery);
-        mql.addListener(function (e) { return layoutChangedCallback(e.matches); });
-        layoutChangedCallback(mql.matches);
-    }
-
-    installMediaQueryWatcher("(min-width: 800px)", function(matches) {
-  
-        if (matches) {
-            about();
-            skills();
-            works();
-        }
-    });
-
     var about = function() {
         // --- ABOUT SECTION ---
         var about = gsap.timeline({
@@ -97,11 +82,26 @@ window.addEventListener('load', function () {
                     start: "top bottom",
                     end: "+=100%"
                 },
-                y: work_display - work_img,
+                y: work_display - work_img < 0 ? work_display - work_img : 0,
                 ease: "none"
             });
         });
     };
+
+    function installMediaQueryWatcher(mediaQuery, layoutChangedCallback) {
+        var mql = window.matchMedia(mediaQuery);
+        mql.addListener(function (e) { return layoutChangedCallback(e.matches); });
+        layoutChangedCallback(mql.matches);
+    }
+
+    installMediaQueryWatcher("(min-width: 700px)", function(matches) {
+  
+        if (matches) {
+            about();
+            skills();
+            works();
+        }
+    });
 
 
     var navLinks = gsap.utils.toArray("nav.menu a");

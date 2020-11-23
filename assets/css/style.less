@@ -16,7 +16,7 @@
 @screen_nm: 1400px;
 @screen_md: 1200px;
 @screen_sm: 900px;
-@screen_xs: 600px;
+@screen_xs: 700px;
 @screen_xxs: 400px;
 
 .responsive_padding {
@@ -288,7 +288,7 @@ a {
 .menu-container {
     position: relative;
 
-    @media screen and (max-width: @screen_sm) {
+    @media screen and (max-width: @screen_xs) {
         transform: none;
         flex-direction: row;
         margin-left: calc((100vw - (@sidemenu * @sidemenuwidth)) / 2);
@@ -331,12 +331,16 @@ nav.menu {
             &:nth-of-type(@{x}):hover ~ .slider,
             &.active:nth-of-type(@{x}) ~ .slider {
                 left: (@sidemenu - @x) * @sidemenuwidth;
+
+                @media screen and (max-width: @screen_xs) { 
+                    left: (@x - 1) * @sidemenuwidth;
+                }
             }
         }
 
     }
 
-    @media screen and (max-width: @screen_sm) {
+    @media screen and (max-width: @screen_xs) {
         transform: none;
         flex-direction: row;
     }
@@ -368,7 +372,7 @@ nav.menu {
         flex-direction: row;
         justify-content: space-between;
         height: auto;
-        order: 4;
+        // order: 4;
     }
 }
 
@@ -404,6 +408,10 @@ footer {
         transform: rotate(-3deg);
         transform-origin: left top;
         z-index: 0;
+
+        @media screen and (max-width: @screen_xs) {
+            display: none;
+        }
     }
 
     &.footer-container, .footer-container{
@@ -427,7 +435,7 @@ footer {
 
     @media screen and (max-width: @screen_xs) { 
         flex: 0;
-        padding: 0rem @dimen_xs;
+        padding: @dimen_xs;
         order: 5;
     }
 }
@@ -500,7 +508,7 @@ main#main-container {
 .about-container {
     min-height: calc(100vh - @dimen * 2);
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         padding: 0rem;
         font-size: 100%;
         height: auto;
@@ -518,7 +526,7 @@ main#main-container {
     justify-content: center;
     flex-direction: column;
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         padding: @dimen_sm;
         flex-direction: column-reverse;
     }
@@ -533,7 +541,7 @@ main#main-container {
     top: 0;
     z-index: 2;
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         position: static;
         width: 100%;
     }
@@ -544,8 +552,9 @@ main#main-container {
     z-index: 3;
     position: relative;
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         font-size: 200%;
+        margin-bottom: 1rem;
     }
 }
 
@@ -555,7 +564,7 @@ main#main-container {
     flex-wrap: wrap;
     .responsive_padding();
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         padding: 0;
     }
 }
@@ -565,7 +574,7 @@ main#main-container {
     padding: 1rem;
     text-align: justify;
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         flex: 0 0 100%;
         padding: 0.6rem 0rem;
     }
@@ -578,6 +587,10 @@ main#main-container {
 .divider {
     width: 100%;
     height: @dimen;
+
+    @media screen and (max-width: @screen_xs) {
+        height: 0;
+    }
 }
 
 .skills-container {
@@ -585,7 +598,7 @@ main#main-container {
     align-items: flex-start;
     position: relative;
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         flex-direction: column;
     }
 }
@@ -611,12 +624,12 @@ main#main-container {
     .skill-item {
         margin-bottom: 1rem;
 
-        @media (max-width: @screen_sm) {
+        @media (max-width: @screen_xs) {
             margin-bottom: .4rem;
         }
     }
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         flex-basis: 100%;
         width: 100%;
         margin-top: 1rem !important;
@@ -638,7 +651,7 @@ main#main-container {
     opacity: .35;
     // width: 50%;
 
-    @media (max-width: @screen_sm) {
+    @media (max-width: @screen_xs) {
         display: none;
     }
 }
@@ -670,7 +683,8 @@ span.skills-text.skills-text-left {
     padding: 1rem;
     // padding-bottom: 4rem;
     flex-direction: row;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
     background-color: @primary_color;
     position: relative;
 
@@ -682,6 +696,16 @@ span.skills-text.skills-text-left {
         color: @light_blue;
         border-radius: .2rem;
         z-index: 1;
+
+        @media (max-width: @screen_xs) {
+            position: static;
+            display: flex;
+            margin-top: .4rem;
+            width: 40%;
+            margin-left: 30%;
+            justify-content: center;
+            padding: .6rem 1rem;
+        }
     }
 
     &.endsars {
@@ -762,18 +786,34 @@ span.skills-text.skills-text-left {
     .work-title {
         flex: 1 1 100%;
         margin-bottom: 2rem;
+
+        @media (max-width: @screen_xs) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .work-sub-title {
+        margin-bottom: 1rem;
+    
+        @media (max-width: @screen_xs) {
+            margin-bottom: .6rem;
+        }
     }
     
     .work-desc {
         flex: 0 0 50%;
         width: 50%;
         text-align: justify;
+
+        @media (max-width: @screen_xs) {
+            width: 100%;
+            padding: 0rem !important;
+        }
     }
     
     .work-display {
         flex: 0 0 50%;
         width: 50%;
-        width: 100%;
         height: 25vw;
         overflow-y: hidden;    
         border-radius: .2rem;
@@ -784,18 +824,29 @@ span.skills-text.skills-text-left {
         }
 
         @media (max-width: @screen_sm) {
-            height: 30vw;
+            height: 40vw;
+        }
+
+        @media (max-width: @screen_xs) {
+            flex-basis: auto;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: @screen_xxs) {
+            height: 50vw;
         }
     }
 
+    @media (max-width: @screen_xs) {
+        margin-left: 0rem;
+        margin-right: 0rem;
+        flex-direction: column-reverse !important;
+    }
 }
 
 div#works-container {
     // overflow: hidden;
-}
-
-.work-sub-title {
-    margin-bottom: 1rem;
 }
 
 .work-item-technologies {
@@ -813,6 +864,27 @@ div#works-container {
             margin-right: 1rem;
             cursor: pointer;
             margin-top: .4rem;
+        }
+    }
+}
+
+.mobile-title {
+    display: none;
+
+    @media (max-width: @screen_xs) {
+        display: block;
+        margin-bottom: 1rem;
+        position: relative;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            width: 2rem;
+            height: .2rem;
+            border-radius: 1rem;
+            background-color: @dark_color;
+            bottom: -.3rem;
+            left: 0rem;
         }
     }
 }
